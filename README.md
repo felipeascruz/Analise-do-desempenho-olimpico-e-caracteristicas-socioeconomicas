@@ -18,19 +18,16 @@ World Bank (população, PIB, PIB per capita) ──┘
 
 ```
 AEDV/
-├── Data/
+├── data/
 │   ├── medal_table.csv          # quadro de medalhas por país e edição
 │   ├── olympic_athletes.csv     # participações individuais (atleta × evento)
 │   └── world_bank.csv           # indicadores do World Bank extraidos da API (1960–2025)
 ├── src/
-│   ├── Análise do desempenho olímpico e características socioeconômicas.ipynb   # notebook principal (artigo)
-│   ├── funcoes_auxiliares.py    # funções de coleta e preparação dos dados
+│   ├── __init__.py              # lida com importação de modulos em src
 │   ├── dados.py                 # módulo unificado de coleta, limpeza, padronização e integração das bases
 │   └── estilo_grafico.py        # estilo gráfico dos gráficos do notebook, inspirado nos princípios de Edward Tufte
+├── Análise do desempenho olímpico e características socioeconômicas.ipynb   # artigo principal
 ```
-
-- **Notebook:** contém o artigo completo (introdução, descrição dos dados, preparação das bases, as oito perguntas e a conclusão), com o código, os gráficos e as análises.
-- **`funcoes_auxiliares.py`:** reúne, em forma de funções, as etapas de coleta do World Bank, conversão de códigos de país (ISO → NOC), construção da base país × edição, junção das bases e listagem dos países sem correspondência. As mesmas etapas aparecem diretamente no notebook, que **não importa** este módulo.
 
 ## Como rodar
 
@@ -43,19 +40,14 @@ AEDV/
 pip install pandas numpy matplotlib jupyter
 ```
 
-### 2. Dados
-
-Não sei como vc vai deixar a estrutura então se precisar de algm comando previo pra rodar os dados coloca aqui 
-
-
-### 3. Executar
+### 2. Executar
 
 ```bash
 cd src
 jupyter lab
 ```
 
-Abra o notebook `Análise do desempenho olímpico e características socioeconômicas.ipynb` e execute as células **de cima para baixo**. As células de preparação (logo após a descrição dos dados) criam os DataFrames usados em todas as perguntas, e incluem verificações (`assert`) de que a junção preserva os totais de medalhas por edição e por metal.
+Abra o notebook `Análise do desempenho olímpico e características socioeconômicas.ipynb` e execute as células de cima para baixo. As células de preparação (logo após a descrição dos dados) criam os DataFrames usados em todas as perguntas, e incluem verificações (`assert`) de que a junção preserva os totais de medalhas por edição e por metal.
 
 ## Dados
 
@@ -64,8 +56,6 @@ Abra o notebook `Análise do desempenho olímpico e características socioeconô
 | `medal_table.csv` | Medalhas (ouro, prata, bronze e total) por país e edição; só aparecem países com ao menos uma medalha. As medalhas de equipe são contadas uma única vez. | Verão e Inverno, 1896–2026 (1.929 linhas, 11 colunas) |
 | `olympic_athletes.csv` | Uma linha por atleta × evento, com país (NOC), edição, esporte, prova e medalha. Usada para identificar todos os participantes, inclusive os sem medalha. | 315.094 linhas, 16 colunas |
 | `world_bank.csv` | População total (`SP.POP.TOTL`), PIB em US$ correntes (`NY.GDP.MKTP.CD`) e PIB per capita em US$ correntes (`NY.GDP.PCAP.CD`), obtidos pela API do World Bank com `wbgapi`. | 1960–2025 |
-
-Os dados olímpicos vêm do repositório [Olympic Athletes](https://github.com/moderndive/olympicAthletes).
 
 ## Tratamento dos dados
 
