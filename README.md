@@ -1,8 +1,5 @@
-# AEDV: Desempenho olímpico e características socioeconômicas
-
-Projeto final da disciplina de Análise Exploratória de Dados e Visualização
-
-O trabalho investiga se o desempenho dos países nos **Jogos Olímpicos de Verão** está associado a características socioeconômicas (população, PIB e PIB per capita). Comparar países só pelo total de medalhas ignora diferenças enormes de tamanho e de riqueza, por isso o desempenho é analisado de formas complementares: número de medalhas, participação em cada edição e participação por categoria de prova (individual ou por equipe). Todas as conclusões são **associações**, não relações de causa e efeito.
+# Desempenho olímpico e características socioeconômicas
+É investigado se o desempenho dos países nos **Jogos Olímpicos de Verão** está associado a características socioeconômicas (população, PIB e PIB per capita). Comparar países só pelo total de medalhas ignora diferenças enormes de tamanho e de riqueza, por isso o desempenho é analisado de formas complementares: número de medalhas, participação em cada edição e participação por categoria de prova (individual ou por equipe). Todas as conclusões são **associações**, não relações de causa e efeito.
 
 A unidade de análise é o par **país × edição**. Países que participaram de uma edição e não ganharam medalhas entram com `total = 0`, e a ausência de indicador socioeconômico fica como dado ausente, nunca como zero.
 
